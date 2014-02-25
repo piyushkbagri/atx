@@ -3,8 +3,8 @@
   <PropertyGroup>
     <ProjectGuid>8776efe4-8a67-40c3-a904-3ef6c7ceefec</ProjectGuid>
     <ProjectTypeGuids>{070BCB52-5A75-4F8C-A973-144AF0EAFCC9}</ProjectTypeGuids>
-    <AppIdentifier>com.planetseed.ATX50</AppIdentifier>
-    <ProjectName>ATX_version5</ProjectName>
+    <AppIdentifier>com.planetseed.ATX</AppIdentifier>
+    <ProjectName>Ask the Experts</ProjectName>
     <IsRunnable>true</IsRunnable>
     <FrameworkVersion>3.2.0</FrameworkVersion>
     <AndroidPermissions>android.permission.INTERNET</AndroidPermissions>
@@ -12,12 +12,12 @@
     <DeviceOrientations>Portrait;Landscape</DeviceOrientations>
     <iOSStatusBarStyle>Default</iOSStatusBarStyle>
     <AndroidHardwareAcceleration>false</AndroidHardwareAcceleration>
-    <BundleVersion>2.0</BundleVersion>
+    <BundleVersion>1.0</BundleVersion>
     <iOSDeviceFamily>1;2</iOSDeviceFamily>
     <iOSBackgroundMode>
     </iOSBackgroundMode>
-    <iOSDisplayName>Ask Science Experts</iOSDisplayName>
-    <AndroidVersionCode>2</AndroidVersionCode>
+    <iOSDisplayName>Ask the Experts</iOSDisplayName>
+    <AndroidVersionCode>1</AndroidVersionCode>
   </PropertyGroup>
   <Import Project="$(MSBuildExtensionsPath)\Telerik\ICE\Tools\Mobile\MobileTools.targets" />
 </Project>

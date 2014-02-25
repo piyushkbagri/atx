@@ -31,8 +31,9 @@ var Application = {
                 //   Application.initCategoryPage();
             })
             .on('pagebeforeshow', '#atx-form-page', function () {
-                qSubmit=false;
-                
+               $('#atx-country').selectmenu("refresh");
+               $('#atx-age').selectmenu("refresh");
+               qSubmit=false;
              })
             .on('pageinit', '#atx-form-page', function () {
                 qSubmit=false;
@@ -532,6 +533,11 @@ var Application = {
                 }, 'Error');
                 return false;
             }
+            if (data['age'] === '') {
+                navigator.notification.alert('Invalid Age, Please select your age', function () {
+                }, 'Error');
+                return false;
+            }            
             if (data['email'] === '') {
                 navigator.notification.alert('Email field is required and cannot be empty', function () {
                 }, 'Error');
@@ -544,12 +550,6 @@ var Application = {
             }
             if (data['country'] === '') {
                 navigator.notification.alert('Invalid Country, Please select your country', function () {
-                }, 'Error');
-                return false;
-            }
-            
-            if (data['age'] === '') {
-                navigator.notification.alert('Invalid Age, Please select your age', function () {
                 }, 'Error');
                 return false;
             }
@@ -574,6 +574,10 @@ var Application = {
                 alert('Name field is required and cannot be empty');
                 return false;
             }
+            if (data['country'] === '') {
+                alert('Invalid Country, Please select your country');
+                return false;
+            }            
             if (data['email'] === '') {
                 alert('Email field is required and cannot be empty');
                 return false;
@@ -582,10 +586,7 @@ var Application = {
                 alert('Invalid email address');
                 return false;
             }
-            if (data['country'] === '') {
-                alert('Invalid Country, Please select your country');
-                return false;
-            }
+
             if (data['age'] === '') {
                 alert('Invalid Age, Please select your age');
                 return false;
@@ -615,6 +616,8 @@ var Application = {
             if (items.age != undefined) {
                 $('#atx-age').val(items.age).selectmenu("refresh");
                 /*
+         
+                
                 result = document.getElementById("atx-age");
                 alert( items.age);
                 result.value = items.age;

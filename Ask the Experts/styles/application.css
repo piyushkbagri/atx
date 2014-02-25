@@ -134,7 +134,7 @@ width: 80%;
 
 #node-body p, #atx-success-page .content
 {
-    text-align: justify;
+   /* text-align: justify;*/
 }
 .hdr-bk-btn .ui-btn-right
 {
@@ -216,6 +216,7 @@ div.ui-input-text
 {
 
     background: -webkit-linear-gradient(#FFEFAA, #FFE155) repeat scroll 0 0 #FADB4E;
+   /*background:-webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #FFEFAA), color-stop(100%, #FFE155));*/
     background: -o-linear-gradient(#FFEFAA, #FFE155) repeat scroll 0 0 #FADB4E;
     background: -moz-linear-gradient(#FFEFAA, #FFE155) repeat scroll 0 0 #FADB4E;
     background: linear-gradient(#FFEFAA, #FFE155) repeat scroll 0 0 #FADB4E;
