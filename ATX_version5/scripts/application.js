@@ -8,6 +8,8 @@ var fetchdata = false;
 var category='';
 var loadCategory=false;
 var qSubmit=false;
+var qSubmitSuccess=false;
+
 
 
 var Application = {
@@ -104,7 +106,8 @@ var Application = {
                 navigator.notification.alert('Submitting is in progress', function () { }, 'Error');
                 return;
             }    
-            qSubmit=true;            
+            qSubmit=true;     
+            qSubmitSuccess=false;
             var url = $server + 'services/atx_tktsubmit';
             $.ajax({
                        url: url,
@@ -117,10 +120,10 @@ var Application = {
                                    $('#verifyurl').html('<a href="' + data["verifyurl"] + '" target="_blank">verify</a>');
                                }
                                $('#atx-questionform')[0].reset();
-                               $.mobile.changePage("#atx-success-page", { transition: "slide", changeHash: false });
-                               alert(qSubmit);
+                               qSubmitSuccess=true;
                            }
                            else {
+                               qSubmitSuccess=false;
                                navigator.notification.alert('Invalid value', function () { }, 'Error');
                            }
                        },
@@ -128,6 +131,9 @@ var Application = {
                            $.mobile.loading('hide');
                            qSubmit=false;
                            console.log('Question submitted:ajax Complete');
+                           if (qSubmitSuccess==true) {
+                                $.mobile.changePage("#atx-success-page", { transition: "slide", changeHash: false });
+                           }                           
                        },
 
                        beforeSend: function() {
