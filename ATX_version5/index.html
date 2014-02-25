@@ -1,42 +1,460 @@
 <!DOCTYPE html>
-<!--
-    Licensed to the Apache Software Foundation (ASF) under one
-    or more contributor license agreements.  See the NOTICE file
-    distributed with this work for additional information
-    regarding copyright ownership.  The ASF licenses this file
-    to you under the Apache License, Version 2.0 (the
-    "License"); you may not use this file except in compliance
-    with the License.  You may obtain a copy of the License at
-
-    http://www.apache.org/licenses/LICENSE-2.0
-
-    Unless required by applicable law or agreed to in writing,
-    software distributed under the License is distributed on an
-    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
-     KIND, either express or implied.  See the License for the
-    specific language governing permissions and limitations
-    under the License.
--->
 <html>
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-        <meta name="format-detection" content="telephone=no" />
-        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
-        <link rel="stylesheet" type="text/css" href="css/index.css" />
-        <title>Hello World!</title>
+        <meta charset="UTF-8" />
+        <title>SEED Ask the Experts</title>
+        <link href="jquery-mobile/styles/jquery.mobile-1.3.1.min.css" rel="stylesheet" />
+        <!-- <link rel="stylesheet" href="jquery-mobile/styles/jquery.mobile-1.4.0.min.css"> -->
+        <!-- uncoment viewport meta tag, if targeting Android 4.x.x devices 
+        <meta name="viewport" content="width=device-width, initial-scale=1">-->
+        <script src="cordova.js" type="text/javascript"></script>
+        <script src="jquery-mobile/js/jquery-1.9.1.min.js" type="text/javascript"></script>
+        <script src="jquery-mobile/js/jquery.mobile-1.3.1.min.js" type="text/javascript"></script>
+        <!--
+        <script src="jquery-mobile/js/jquery-1.10.2.min.js"></script>
+        <script src="jquery-mobile/js/jquery.mobile-1.4.0.min.js"></script>  -->
+        <script>
+            $(function() {
+                $.mobile.defaultHomeScroll = 0;
+            }); 
+            var mobile_system = '';
+            var isDevice = false;
+            var userAgent = navigator.userAgent + '';
+            if (navigator.userAgent.match(/(iPad|iPhone|iPod)/g)) {
+                //document.write('<script src="scripts/cordova-iphone.js"></sc' + 'ript>');
+                document.write('<script src="scripts/ios.js"></sc' + 'ript>');
+                document.write('<link rel="stylesheet" href="styles/ios.css" />');
+                mobile_system = 'ios';
+                isDevice = true;
+            } else if (userAgent.indexOf('Android') > -1) {
+                //	document.write('<script src="scripts/cordova-android.js"></sc' + 'ript>');
+                document.write('<script src="scripts/android.js"></sc' + 'ript>');
+                document.write('<meta name="viewport" content="height=device-height, initial-scale=1">');
+                document.write('<meta name="viewport" content="width=device-width, initial-scale=1">');
+                //  document.write('<link rel="stylesheet" href="styles/android.css" />');
+                mobile_system = 'android';
+                isDevice = true;
+                // alert('Android');
+            } else {
+            }
+        </script>
+        <script src="scripts/application.js" type="text/javascript"></script>
+
+        <!-- Default Stylesheet -->
+        <!--    <link rel="stylesheet" href="styles/custom.css" /> -->
+        <link rel="stylesheet" href="styles/application.css" />
+        <!-- Phone 320x480 High DPI (aka Retina) -->
+        <link rel="stylesheet" media="only screen and (min-device-width: 320px) and (max-device-width: 480px) and (-webkit-device-pixel-ratio:2)" href="styles/phone-480.css" type="text/css" />
+        <!-- Phone 480x800 Medium DPI (aka Samsung Galaxy S II Skyrocket) -->
+        <link rel="stylesheet" media="only screen and (min-device-width: 320px) and (max-device-width: 508px) and (-webkit-device-pixel-ratio:1.5)" href="styles/phone-800.css" type="text/css" />
+        <!-- Tablet 768x1024 Low DPI (aka iPad 1 & 2") -->
+        <link rel="stylesheet" media="only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (-webkit-device-pixel-ratio:1)" href="styles/tablet-1024-ldpi.css" type="text/css" />
+        <!-- Tablet 800x1280 Low DPI (aka Samsung Galaxy Tab 8.9" & Lenovo K1) -->
+        <!--<link rel="stylesheet" media="only screen and (min-device-width: 800px) and (max-device-width: 1280px) and (-webkit-device-pixel-ratio:1)" href="styles/tablet-1280.css" type="text/css" />-->
+        <!-- Phone 720x1280 High DPI (aka Google Nexus) -->
+        <link rel="stylesheet" media="only screen and (min-device-width: 720px) and (max-device-width: 1280px) and (-webkit-device-pixel-ratio:2)" href="styles/phone-1280.css" type="text/css" />
+        <!-- Tablet 500x1024 Low DPI (aka Kindle Fire) -->
+        <!--<link rel="stylesheet" media="only screen and (min-device-width: 600px) and (max-device-width: 1024px) and (-webkit-device-pixel-ratio:1)" href="styles/tablet-600-1024.css" type="text/css" />-->
+        <!-- Tablet 768x1024 High DPI (aka iPad3") -->
+        <!--<link rel="stylesheet" media="only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (-webkit-device-pixel-ratio:2)" href="styles/tablet-1024-hdpi.css" type="text/css" />-->
     </head>
     <body>
-        <div class="app">
-            <h1>Apache Cordova</h1>
-            <div id="deviceready" class="blink">
-                <p class="event listening">Connecting to Device</p>
-                <p class="event received">Device is Ready</p>
+
+        <!-- Home Begin -->
+        <div data-role="page" id="home-page">
+
+            <header data-role="header" data-theme="d">
+                <div align="center" class="logo">
+                    <img src="images/new_logo200.png" />
+                    <div class="title">Ask Science Experts</div>
+                </div>
+            </header>
+
+            <div  class="content" data-role="content" >
+
+                <label for="language" class="ui-hidden-accessible">Language</label>
+                <select name="language" id="app-language" data-theme="b" data-native-menu="false">
+                    <option value="en">Language</option>
+                    <option value="ar">العربية</option>
+                    <option value="zh-hans">中文</option>
+                    <option selected value="en">English</option>
+                    <option value="es">Español</option>
+                    <option value="fr">Français</option>
+                    <option value="pt-br">Português</option>
+                    <option value="ru">Русский</option>
+                </select>
+                <!--
+                <ul id='home-faqlist' class="faqlist" data-role="listview" data-inset="true">
+                </ul>
+                <ul id="ul-language"><li class="ar first"><a class="language-link" href="/ar">العربية</a></li>
+                <li class="zh-hans "><a class="language-link" href="/zh-hans">中文</a></li>
+                <li class="en "><a class="language-link active" href="/">English</a></li>
+                <li class="es "><a class="language-link" href="/es">Español</a></li>
+                <li class="fr "><a class="language-link" href="/fr">Français</a></li>
+                <li class="pt-br "><a class="language-link" href="/pt-br">Português</a></li>
+                <li class="ru last "><a class="language-link" href="/ru">Русский</a></li>
+                </ul> -->
+
+                <p>
+                    <div class="ui-body ui-body-d ui-corner-all" data-form="ui-body-d">
+                        <fieldset class="ui-grid-a">
+                            <div class="ui-block-a">
+                                Tap here to ask a science question.
+                            </div>
+                            <div class="ui-block-b">
+                                <a data-role="button" data-ajax="false" id='homeAskBtn' href="#asktheexpert-page"data-theme="e">Ask</a>
+                            </div>
+
+                        </fieldset>
+                    </div>
+                </p>
+
+                <p>
+                    <div class="ui-body ui-body-d ui-corner-all" data-theme="d" data-form="ui-body-d">
+                        <fieldset class="ui-grid-a">
+                            <div class="ui-block-a">
+                                Tap here to browse our frequently asked questions.
+                            </div>
+                            <div class="ui-block-b" >
+                                <a data-role="button" data-ajax="false" id='homeBrowseBtn'  href="#browsetopic-page" data-theme="e">Browse</a>
+                            </div>
+                        </fieldset>
+                    </div>
+                </p>
+
             </div>
+
+            <!--
+            <footer data-role="footer" data-position="fixed" data-fullscreen='false'>
+            
+            <div  data-role="navbar" class="buttom-button ui-body-b"  >
+            <ul>
+            <li><a  data-transition="slide" href="#asktheexpert-page" data-role="button" id='homeAskBtn' data-icon="grid">Ask </a> </li>
+            <li><a  data-transition="slide" href="#browsetopic-page" data-role="button" id='homeBrowseBtn' data-icon="search">Browse</a> </li>
+            </ul>
+            </div>
+            <div class="copyright"> Schlumberger Excellence in Education Development.</div>
+            </footer> -->
         </div>
-        <script type="text/javascript" src="cordova.js"></script>
-        <script type="text/javascript" src="js/index.js"></script>
-        <script type="text/javascript">
-            app.initialize();
-        </script>
+        <!-- Home End -->
+
+        <!--Browse Begin -->
+
+        <div data-role="page" id="browsetopic-page">
+            <header data-role="header">
+                <div class="ul-header" >
+                    <div class="title">Ask Science Experts</div>
+                </div>
+            </header>
+            <div  class="content" data-role="content" >
+                <div class="ui-body ui-body-d ui-corner-all" data-theme="d" data-form="ui-body-d">
+                    <h2>Select a topic</h2>
+                    <ul id="category-list" data-role="listview" data-inset="true">
+                        <li>
+                            <a  data-transition="slide" href="#faq-list-page">Aerodynamics</a>
+                        </li>
+                        <li>
+                            <a  data-transition="slide" href="#faq-list-page">Astronomy</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <footer data-role="footer" data-position="fixed" data-fullscreen='false'>
+                <div  data-role="navbar" class="buttom-button ui-body-b"  >
+                    <ul>
+                        <li>
+                            <a  data-transition="slide" href="#home-page" data-role="button" data-icon="home" data-ajax="false"  data-direction= "reverse" >Home</a>
+                        </li>
+                        <li>
+                            <a  data-transition="slide" href="#asktheexpert-page" data-role="button"  data-icon="grid"  data-direction= "reverse" >Ask </a>
+                        </li>
+                        <!-- <li><a  data-transition="slide" href="#browsetopic-page" data-role="button"  data-direction= "reverse"  data-icon="search">Browse</a> </li>         -->
+                    </ul>
+                </div>
+                <div class="copyright"> Schlumberger Excellence in Education Development.</div>
+            </footer>
+
+        </div>
+
+        <!-- Browse End -->
+
+        <!--Faq list Begin -------------------------------------------------------->
+
+        <div data-role="page" id="faq-list-page"  data-history="false">
+            <header data-role="header">
+                <div class="ul-header" >
+                    <div class="title">Ask Science Experts</div>
+                </div>
+            </header>
+            <div  class="content" data-role="content" >
+                <div id="faq-list-page-content" class="ui-body ui-body-d ui-corner-all" data-theme="d" data-form="ui-body-d">
+                    <h3 id='category-name' class="category-name"></h3>
+                    <h2>Select a question</h2>
+                    <ul id="faqs-list" class="faqs-list"  data-role="listview" data-inset="true">
+
+                    </ul>
+                </div>
+            </div>
+            <footer data-role="footer" data-position="fixed" data-fullscreen='false'>
+                <div  data-role="navbar" class="buttom-button ui-body-b"  >
+                    <ul>
+                        <li>
+                            <a  rel="external"  data-transition="slide" href="index.html#browsetopic-page" data-role="button"  data-direction="reverse" data-icon="back">Back</a>
+                        </li>
+                        <li>
+                            <a  data-transition="slide" href="#home-page" data-role="button" data-direction="reverse" data-icon="home" >Home</a>
+                        </li>
+                        <li>
+                            <a  data-transition="slide" href="#asktheexpert-page" data-role="button"  data-direction="reverse" data-icon="grid">Ask </a>
+                        </li>
+
+                    </ul>
+                </div>
+                <div class="copyright"> Schlumberger Excellence in Education Development.</div>
+            </footer>
+
+        </div>
+
+        <!--Faq list End -->
+
+        <!-- Faq detail Begin ------------------------------------------------------------------->
+        <div data-role="page" id="faq-detail-page"  data-history="false">
+
+            <header data-role="header">
+                <div class="ul-header" >
+                    <div class="title">Ask Science Experts</div>
+                </div>
+            </header>
+            <div  class="content" data-role="content" >
+                <div class="ui-body ui-body-d ui-corner-all" data-theme="d" data-form="ui-body-d">
+                    <p>
+                        <h3 class='faq-detail-category category-name' id='faq-detail-category'></h3>
+                        <h2 id="node-title" class="node-title"></h2>
+                        <div id="node-body" class="node-body ui-body ui-body-d  ui-corner-all" data-form="ui-body-d" data-theme="d">
+                        </div>
+                    </p>
+
+                </div>
+            </div>
+            <footer data-role="footer" data-position="fixed" data-fullscreen='false'>
+                <div  data-role="navbar" class="buttom-button ui-body-b"  >
+                    <ul>
+                        <li>
+                            <a rel="external"  data-transition="slide" href="index.html#faq-list-page"  data-role="button" data-direction="reverse" data-icon="back">Back</a>
+                        </li>
+                        <li>
+                            <a  data-transition="slide" href="#asktheexpert-page" data-role="button" data-direction="reverse" data-icon="grid">Ask </a>
+                        </li>
+                        <li>
+                            <a  data-transition="slide" href="#browsetopic-page" data-role="button" data-direction="reverse" data-icon="search">Browse</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="copyright"> Schlumberger Excellence in Education Development.</div>
+            </footer>
+
+        </div>
+        <!-- Faq detail End -->
+
+        <!-- Ask Begin --------------------------------------------------------------->
+
+        <div data-role="page" id="asktheexpert-page">
+            <header data-role="header">
+                <div class="ul-header" >
+                    <div class="title">Ask Science Experts</div>
+                    <!--    <div class="hdr-bk-btn" ><a  data-transition="slide" href="#" data-icon="back"  data-theme="b" class="ui-btn-right" data-role="button"  data-rel="back" title="Go back">Back</a></div>-->
+                </div>
+            </header>
+            <div  class="content" data-role="content" >
+                <div class="ui-body ui-body-d ui-corner-all" data-theme="d" data-form="ui-body-d">
+                    <h2>Ask your question</h2>
+                    <form id="atx-questionform" method="post" action="" >
+                        <div data-role="fieldcontain">
+                            <label for="atx-question-category" class="ui-hidden-accessible">Select question category</label>
+                            <select name="atx-question-category" id="atx-question-category" data-native-menu="false" required>
+                                <option value="" selected>Select question category</option>
+                                <option value="Science" >Science</option>
+                                <option value="Maths" >Maths</option>
+                                <option value="Engineering" >Engineering</option>
+                            </select>
+                        </div>
+                        <textarea name="txt-question" placeholder="Ask your question here... "  id="atx-question"  row="10" required></textarea>
+                        <!-- <a  data-transition="slide" href="#atx-form-page" data-theme="e"  data-role="button">Submit</a>-->
+                        <div data-role="fieldcontain" class="submit-wrapper">
+                            <input type="submit" data-theme="e"  value="Submit">
+                        </div>
+                    </form>
+                </div>
+            </div>
+         
+
+            <footer data-role="footer" data-position="fixed" data-fullscreen='false' class='formfooter' >
+                <div  data-role="navbar" class="buttom-button ui-body-b"  >
+                    <ul>
+                        <li>
+                            <a  data-transition="slide" href="#home-page" data-role="button"  data-direction= "reverse" data-ajax="false" data-icon="home" >Home</a>
+                        </li>
+                        <!--   <li><a  data-transition="slide" href="#asktheexpert-page" data-role="button"  data-direction= "reverse"   data-icon="grid">Ask </a> </li>         -->
+                        <li>
+                            <a  data-transition="slide" href="#browsetopic-page" data-role="button"  data-direction= "reverse"  data-icon="search">Browse</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="copyright"> Schlumberger Excellence in Education Development.</div>
+            </footer>
+        </div>
+        <!-- Ask End -->
+
+        <!-- User info Begin --------------------------------------------------------------------->
+
+        <div data-role="page" id="atx-form-page">
+            <header data-role="header">
+                <div class="ul-header" >
+                    <div class="title">Ask Science Experts</div>
+                    <!--    <div class="hdr-bk-btn" ><a  data-transition="slide" href="#" data-icon="back"  data-theme="b" class="ui-btn-right" data-role="button"  data-rel="back" title="Go back">Back</a></div>-->
+                </div>
+            </header>
+            <div  class="content" data-role="content" >
+                <div class="ui-body ui-body-d ui-corner-all" data-theme="d" data-form="ui-body-d">
+                    <h2>Submit your question</h2>
+                    <h2 id='form-success'></h2>
+                    <p> So that your question can be answered, please provide the following information. SEED will not share this information with any other party. </p>
+
+                    <form id='atx-form' method="post" action="">
+                        <div data-role="fieldcontain">
+
+                            <div data-role="fieldcontain">
+                                <label for="atx-name" class="ui-hidden-accessible">Name:</label>
+                                <input type="text" name="txt-name" id="atx-name" placeholder="Name..." required />
+                            </div>
+                            <div data-role="fieldcontain">
+                                <label for="atx-age" class="ui-hidden-accessible">Age</label>
+                                <select name="txt-age" id="atx-age"  data-native-menu="false">
+                                    <option value="" selected>Age</option>
+
+                                </select>
+                            </div>
+                            <div data-role="fieldcontain">
+                                <label for="atx-email" class="ui-hidden-accessible">Email:</label>
+                                <input type="email" name="txt-email" id="atx-email" placeholder="Email..." required />
+                            </div>
+                            <div data-role="fieldcontain">
+                                <label for="atx-country" class="ui-hidden-accessible">Country</label>
+                                <select name="txt-country" id="atx-country" data-native-menu="false">
+                                    <option value="" selected>Country</option>
+                                </select>
+                            </div> <!--
+                            <div data-role="fieldcontain">
+                            <fieldset data-role="controlgroup">
+                            <label for="atx-is_teacher">Are you a teacher?</label>
+                            <input data-role="flipswitch" name="atx-is_teacher" id="atx-is_teacher"  type="checkbox">
+                            </fieldset>
+                            </div> -->
+                            <div data-role="fieldcontain">
+                                <fieldset data-role="controlgroup"  data-type="horizontal" >
+                                    <p>Are you a teacher?</p>
+                                    <label for="yes">Yes</label>
+                                    <input type="radio" name="atx-is_teacher" id="yes" value="1">
+                                    <label for="no">No</label>
+                                    <input type="radio" name="atx-is_teacher" id="no" value="0">
+                                </fieldset>
+                            </div>
+                            <div data-role="fieldcontain" class="submit-wrapper">
+
+                                <input type="submit" data-theme="e"  value="Submit">
+                            </div>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+            <br/>
+
+            <footer data-role="footer" data-fullscreen='false' data-position="fixed" class='formfooter' >
+                <div  data-role="navbar" class="buttom-button ui-body-b"  >
+                    <ul>
+                        <li>
+                            <a  data-transition="slide" href="#" data-role="button" data-rel="back" data-direction= "reverse" data-ajax="false"  data-icon="back">Back </a>
+                        </li>
+                        <li>
+                            <a  data-transition="slide" href="#home-page" data-role="button" data-icon="home"  data-direction= "reverse"  >Home</a>
+                        </li>
+                        <li>
+                            <a  data-transition="slide" href="#browsetopic-page" data-role="button"  data-direction= "reverse"  data-icon="search">Browse</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="copyright"> Schlumberger Excellence in Education Development.</div>
+            </footer>
+
+        </div>
+
+        <!-- User info End -->
+
+        <!-- Thanky you page Begin -->
+
+        <div data-role="page" id="atx-success-page">
+            <header data-role="header">
+                <div class="ul-header" >
+                    <div class="title">Ask Science Experts</div>
+                    <!--    <div class="hdr-bk-btn" ><a  data-transition="slide" href="#" data-icon="back"  data-theme="b" class="ui-btn-right" data-role="button"  data-rel="back" title="Go back">Back</a></div>-->
+                </div>
+            </header>
+            <div  class="content" data-role="content" >
+                <div class="ui-body ui-body-d ui-corner-all" data-theme="d" data-form="ui-body-d">
+
+                    <p>
+                        <h2>Thank you!</h2>
+                        <p id='verifyurl'></p>
+                        <div class="ui-body ui-body-d  ui-corner-all" data-form="ui-body-d" data-theme="d">
+                            <p>Check your email for a message from SEED. Click on the link in the message so your question can be answered. The answer will be sent to you by return email.</p>
+                            <p> Tap the buttons below to browse our frequently asked questions or to ask another question.</p>
+                            <!--<p>Browse previously answered questions about science, technology, engineering, and mathematics, ask another question, or end this session.</p>-->
+                            <br/> <br/> <br/> <br/>
+                        </div>
+                    </p>
+
+                </div>
+            </div>
+            <footer data-role="footer" data-position="fixed" data-fullscreen='false'>
+                <div  data-role="navbar" class="buttom-button ui-body-b"  >
+                    <ul>
+                        <li>
+                            <a  data-transition="slide" href="#home-page"  data-direction= "reverse"  data-role="button" data-icon="home" >Home</a>
+                        </li>
+                        <li>
+                            <a  data-transition="slide" href="#asktheexpert-page"  data-direction= "reverse"  data-role="button"  data-icon="grid">Ask </a>
+                        </li>
+                        <li>
+                            <a  data-transition="slide" href="#browsetopic-page"  data-direction= "reverse"  data-role="button"  data-icon="search">Browse</a>
+                        </li>
+                        <!--            <li><a class="btnclose" data-role="button" data-icon="delete"  data-direction= "reverse"  >Close</a> </li>-->
+                    </ul>
+                </div>
+                <div class="copyright"> Schlumberger Excellence in Education Development.</div>
+            </footer>
+
+        </div>
+
+        <!-- Thanky you page  End -->
     </body>
+    <script>
+        $(document).one('deviceready', Application.initApplication);
+        $(document).one('deviceready', Application.loadApplication);
+        
+        if (isDevice === false) {
+            $(document).ready(function() {
+                Application.loadApplication();
+                $(document).on("click", '#homeBrowseBtn', function(event) {
+                    Application.initCategoryPage();
+                });
+                $(document).on("click", '#homeAskBtn', function(event) {
+                    Application.initAtxFormPage();
+                    Application._getDbValues();
+                });
+            });
+        }
+        
+    </script>
 </html>
+

@@ -1,0 +1,225 @@
+.ui-page, .ui-header1
+{
+    background: url("../images/bg.jpg") repeat-x scroll center top #CED8E2;
+}
+
+#home-page .ui-block-a
+{
+    width: 60% !important;
+    padding:8px
+}
+#home-page .ui-block-b
+{
+    width: 40% !important;
+}
+
+body.ui-mobile-viewport, div.ui-mobile-viewport
+{
+    background: url("../images/bg.jpg") repeat-x scroll center top #CED8E2;
+    overflow-x: hidden;
+}
+
+#home-page .ui-page, #home-page .ui-header
+{
+    background: url("../images/bg.jpg") repeat-x scroll center top #CED8E2;
+    border: 0px solid #df9900;
+}
+
+#home-page .ui-content
+{
+    padding-top: 0px;
+}
+
+header.ui-header
+{
+    background: url("../images/innerlogo200.png") no-repeat scroll 4px 4px rgba(0, 0, 0, 0);
+    border: 0 none;
+    padding: 5px 0 10px 90px;
+    margin-bottom: 5px;
+    color: #B6C4D2;
+    font-size: 1.8em;
+    /*line-height: 1.7em;*/
+    text-align: center;
+    text-shadow: none;
+    /* border-bottom: 1px solid #df9900;*/
+    padding-top:1em;
+    min-height:50px;
+}
+#home-page header.ui-header
+{
+
+
+    font-size: 1.6em;
+    line-height: 120%;
+    padding: 2px 0;
+    text-align: center;
+    text-shadow: none;
+    border: 0 none;
+}
+#ul-language
+{
+    padding: 0px;
+}
+
+#ul-language li { display: inline; }
+#ul-language li a
+{
+    font-size: .7em; color: #82D461;
+    font-weight: normal;
+    text-decoration: none;
+    text-shadow: none;
+}
+
+#home-page .ui-page, #home-page .ui-header
+{
+    background: url("../images/bg.jpg") repeat-x scroll center top #CED8E2;
+    border: 0px solid #df9900;
+    padding: 0;
+}
+#home-page .logo
+{
+    padding-top: 10px;
+}
+
+#home-page .title
+{
+    color: #B6C4D2;
+    padding-top: 5px;
+    text-align: center;
+    text-shadow: none;
+}
+
+#home-page  .ui-btn-inner {
+
+padding: .6em 15px;
+
+overflow: hidden;
+
+}
+/*
+.homelogo , .logo{
+background-color:      #002D61;
+}
+.homelogo img{
+background-color:      #002D61;
+width: 100%;
+}
+.logo img{
+background-color:      #002D61;
+width: 80%;
+}
+*/
+.logo-inner
+{
+    background: url("../images/innerlogo2.png")no-repeat scroll 2px 0 #003466;
+    margin-top: 7px;
+    width: 100%;
+    height: 52px;
+}
+.copyright
+{
+    background-color: #9AAFC2;
+    font-size: 0.7em;
+    margin: auto;
+    padding: 3px;
+    text-align: center;
+    text-shadow: none;
+    display: none;
+}
+
+#atx-question
+{
+    height: 8em;
+}
+
+#node-body p, #atx-success-page .content
+{
+    text-align: justify;
+}
+.hdr-bk-btn .ui-btn-right
+{
+    top: 1.5em;
+    right: 0.75em;
+}
+.error
+{
+    background: #FAE5E3;
+    padding: 8px;
+    margin: 5px 10px;
+}
+
+label.missing
+{
+    color: #FF0000;
+    font-weight: bold;
+}
+
+label.error
+{
+    color: red;
+    font-size: 16px;
+    font-weight: normal;
+    line-height: 1.4;
+    margin-top: 0.5em;
+    width: 100%;
+    float: none;
+}
+#category-name,#faq-detail-category{
+margin-bottom:0.25em !important;
+margin-top:0.5em !important;    
+color:rgb(57, 107, 158);
+}
+#faq-list-page-content h2, #node-title{
+margin-bottom:0.5em !important;
+margin-top:0.25em !important;
+}
+
+@media screen and (orientation: portrait)
+{
+    label.error { margin-left: 0; display: block; }
+   
+}
+
+@media screen and (orientation: landscape)
+{
+    label.error { display: inline-block; margin-left: 22%; }
+}
+
+
+@media only screen and (max-width:320px) and (orientation:portrait){
+   
+     header.ui-header { padding-top:0.5em;} 
+}
+
+div.ui-input-text
+{
+    padding: 0;
+}
+ 
+.ui-field-contain input.ui-input-text,
+.ui-field-contain textarea.ui-input-text,
+.ui-field-contain .ui-input-search,
+.ui-field-contain div.ui-input-text,
+.ui-field-contain .ui-btn.ui-submit,
+.ui-field-contain .ui-controlgroup-controls,
+.ui-field-contain .ui-select
+{
+
+    min-width: 100%;
+}
+
+.formfooter { width: 100%; bottom: 0; right: auto; top: auto! important; position: absolute !important; border: 0px } 
+
+/*.ui-page { -webkit-backface-visibility: hidden; } */
+
+.submit-wrapper .ui-btn-active, #homeAskBtn.ui-btn-active, #homeBrowseBtn.ui-btn-active
+{
+
+    background: -webkit-linear-gradient(#FFEFAA, #FFE155) repeat scroll 0 0 #FADB4E;
+    background: -o-linear-gradient(#FFEFAA, #FFE155) repeat scroll 0 0 #FADB4E;
+    background: -moz-linear-gradient(#FFEFAA, #FFE155) repeat scroll 0 0 #FADB4E;
+    background: linear-gradient(#FFEFAA, #FFE155) repeat scroll 0 0 #FADB4E;
+    color: #222222;
+    text-shadow: none;
+    border: 1px solid #F4C63F;
+}
