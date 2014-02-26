@@ -3,7 +3,7 @@
   <PropertyGroup>
     <ProjectGuid>8776efe4-8a67-40c3-a904-3ef6c7ceefec</ProjectGuid>
     <ProjectTypeGuids>{070BCB52-5A75-4F8C-A973-144AF0EAFCC9}</ProjectTypeGuids>
-    <AppIdentifier>com.planetseed.ATX</AppIdentifier>
+    <AppIdentifier>com.planetseed.ATX51</AppIdentifier>
     <ProjectName>Ask the Experts</ProjectName>
     <IsRunnable>true</IsRunnable>
     <FrameworkVersion>3.2.0</FrameworkVersion>

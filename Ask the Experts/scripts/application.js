@@ -90,7 +90,7 @@ var Application = {
     },
 
 
-
+  
 
     initAtxFormPage: function () {
         
@@ -156,7 +156,7 @@ var Application = {
         
         var $lng = $("#app-language").val();
         var $url = $PSserver + 'services/atx_ticketcategory/' + $lng ;
-        var quesOpt = '<option value="" selected>Select a question category<\/option>';
+        var quesOpt = '<option value="" selected>Select category<\/option>';
         $.ajax({
                    type: 'GET',
                    url: $url,

@@ -71,10 +71,12 @@
             </header>
 
             <div  class="content" data-role="content" >
+             
 
-                <label for="language" class="ui-hidden-accessible">Language</label>
+                
+                <label for="app-language" class="ui-hidden-accessible">Language</label>
                 <select name="language" id="app-language" data-theme="b" data-native-menu="false" data-corners="true">
-                    <option value="en">Language</option>
+          <option value="" selected >Language</option>
                     <option value="ar">العربية</option>
                     <option value="zh-hans">中文</option>
                     <option selected value="en">English</option>
@@ -270,9 +272,9 @@
                     <h2>Ask your question</h2>
                     <form id="atx-questionform" method="post" action="" >
                         <div data-role="fieldcontain">
-                            <label for="atx-question-category" class="ui-hidden-accessible">Select question category</label>
+                            <label for="atx-question-category" class="ui-hidden-accessible">Select category</label>
                             <select name="atx-question-category" id="atx-question-category" data-native-menu="false" required>
-                                <option value="" selected>Select question category</option>
+                                <option value="" selected>Select category</option>
                                 <option value="Science" >Science</option>
                                 <option value="Maths" >Maths</option>
                                 <option value="Engineering" >Engineering</option>
@@ -281,7 +283,7 @@
                         <textarea name="txt-question" placeholder="Ask your question here... "  id="atx-question"  row="10" required></textarea>
                         <!-- <a  data-transition="slide" href="#atx-form-page" data-theme="e"  data-role="button">Submit</a>-->
                         <div data-role="fieldcontain" class="submit-wrapper">
-                            <input type="submit" data-theme="e"  value="Submit">
+                            <input type="submit" data-theme="e"  value="Next">
                         </div>
                     </form>
                 </div>
@@ -331,8 +333,7 @@
                                 <label for="atx-age" class="ui-hidden-accessible">Age</label>
                                 <select name="txt-age" id="atx-age"  data-native-menu="false">
                                     <option value="" selected>Age</option>
-
-                                </select>
+                                               </select>
                             </div>
                             <div data-role="fieldcontain">
                                 <label for="atx-email" class="ui-hidden-accessible">Email:</label>
