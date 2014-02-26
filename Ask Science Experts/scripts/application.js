@@ -5,110 +5,110 @@ var $server = 'http://www.planetseed.com/';
 var ajaxing = false;
 var fetchdata = false;
 
-var category='';
-var loadCategory=false;
-var qSubmit=false;
-var qSubmitSuccess=false;
-
-
+var category = '';
+var loadCategory = false;
+var qSubmit = false;
+var qSubmitSuccess = false;
 
 var Application = {
 
     initApplication: function () {
         $(document)
             .on('pageinit', '#home-page', function () {
-              
                 //   Application.initHomePage();   
             })
             .on('pageinit', '#browsetopic-page', function () {
-                 Application.initCategoryPage();
+                Application.initCategoryPage();
             })
             .on('pagebeforeshow', '#browsetopic-page', function () {
-                if(loadCategory==false) Application.initCategoryPage();
+                if (loadCategory == false)
+                    Application.initCategoryPage();
             })   
         
             .on('pageinit', '#asktheexpert-page', function () {
                 //   Application.initCategoryPage();
             })
             .on('pagebeforeshow', '#atx-form-page', function () {
-               $('#atx-country').selectmenu("refresh");
-               $('#atx-age').selectmenu("refresh");
-               qSubmit=false;
-             })
+                $('#atx-country').selectmenu("refresh");
+                $('#atx-age').selectmenu("refresh");
+                qSubmit = false;
+            })
             .on('pageinit', '#atx-form-page', function () {
-                qSubmit=false;
+                qSubmit = false;
                 Application._getDbValues();
                 //    Application.initAtxFormPage(); 
             })
             .on('pageinit', '#faq-detail-page-ext', function () {
-               $('#faq-detail-page-ext .content').html($('#faq-detail-page .content').html());
-               $.mobile.activePage.trigger("refresh");  
-             })
-            ;
+                $('#faq-detail-page-ext .content').html($('#faq-detail-page .content').html());
+                $.mobile.activePage.trigger("refresh");  
+            })
+        ;
         document.addEventListener("backbutton", function(e) {
             if ($.mobile.activePage.is('#home-page')) {
                 e.preventDefault();
                 navigator.app.exitApp();
-            }
-            else {
+            } else {
                 navigator.app.backHistory()
             }
         }, false);
-
-	
     },
 
     loadApplication: function () {
-
-     //    Application.updateIcons();
+        //    Application.updateIcons();
         Application.loadCountry();
         Application.loadAge();
         
-     //   Application.initCategoryPage();
+        //   Application.initCategoryPage();
         Application.initAtxFormPage();
         Application.initQuestionPage();
        
-        if (isDevice === true){
-        navigator.splashscreen.hide();
+        if (isDevice === true) {
+            navigator.splashscreen.hide();
         }
        
         $(".btnclose").on("tap", function() {
             navigator.app.exitApp();
         });
         
-       $(document).bind("mobileinit", function () {
-            $.mobile.defaultPageTransition   = 'none';
+        $(document).bind("mobileinit", function () {
+            $.mobile.defaultPageTransition = 'none';
             $.mobile.defaultDialogTransition = 'none';
             $.mobile.buttonMarkup.hoverDelay = 0;
-       });
+        });
         
-       $(document).on("change", '#app-language', function(event) {loadCategory=false;  Application.initCategoryPage(); });
-       $('#homeAskBtn').click(function(){ return Application.checkConnection(); });
-       $('#homeBrowseBtn').click(function(){ return Application.checkConnection(); });
-               
-
+        $(document).on("change", '#app-language', function(event) {
+            loadCategory = false;
+            Application.initCategoryPage();
+        });
+        $('#homeAskBtn').click(function() {
+            return Application.checkConnection();
+        });
+        $('#homeBrowseBtn').click(function() {
+            return Application.checkConnection();
+        });
     },
 
 
   
 
     initAtxFormPage: function () {
-        
         $('#atx-form').submit(function (event) {
-            if(! Application.checkConnection() ) return;
+            if (! Application.checkConnection())
+                return;
 
             event.preventDefault();
             var data = Application._setDbValues();
             console.log(data);
-            if (typeof(data) == 'boolean') return false;
+            if (typeof(data) == 'boolean')
+                return false;
             
-            if(qSubmit==true)
-            {
-                navigator.notification.alert('Submitting is in progress', function () { }, 'Error');
+            if (qSubmit == true) {
+                navigator.notification.alert('Submitting is in progress', function () {
+                }, 'Error');
                 return;
             }    
-            qSubmit=true;     
-            qSubmitSuccess=false;
+            qSubmit = true;     
+            qSubmitSuccess = false;
             var url = $server + 'services/atx_tktsubmit';
             $.ajax({
                        url: url,
@@ -121,19 +121,19 @@ var Application = {
                                    $('#verifyurl').html('<a href="' + data["verifyurl"] + '" target="_blank">verify</a>');
                                }
                                $('#atx-questionform')[0].reset();
-                               qSubmitSuccess=true;
-                           }
-                           else {
-                               qSubmitSuccess=false;
-                               navigator.notification.alert('Invalid value', function () { }, 'Error');
+                               qSubmitSuccess = true;
+                           } else {
+                               qSubmitSuccess = false;
+                               navigator.notification.alert('Invalid value', function () {
+                               }, 'Error');
                            }
                        },
                        complete: function () {
                            $.mobile.loading('hide');
-                           qSubmit=false;
+                           qSubmit = false;
                            console.log('Question submitted:ajax Complete');
-                           if (qSubmitSuccess==true) {
-                                $.mobile.changePage("#atx-success-page", { transition: "slide", changeHash: false });
+                           if (qSubmitSuccess == true) {
+                               $.mobile.changePage("#atx-success-page", { transition: "slide", changeHash: false });
                            }                           
                        },
 
@@ -142,7 +142,8 @@ var Application = {
                        },
                        error: function(data) {
                            console.log(data)
-                           navigator.notification.alert('ERROR OCCURRED!', function () {  }, 'Error');
+                           navigator.notification.alert('ERROR OCCURRED!', function () {
+                           }, 'Error');
                        }
                    });
             return false;
@@ -151,8 +152,8 @@ var Application = {
 
 
     initQuestionPage: function () {
-        
-       if(! Application.checkConnection()) return;
+        if (! Application.checkConnection())
+            return;
         
         var $lng = $("#app-language").val();
         var $url = $PSserver + 'services/atx_ticketcategory/' + $lng ;
@@ -180,7 +181,7 @@ var Application = {
                        }
                        $.each(data['rows'], function(i, row) {
                            $.each(row, function(key, value) {
-                              quesOpt += '<option value="' + value.tid + '" >' + value.name + '<\/option> ';
+                               quesOpt += '<option value="' + value.tid + '" >' + value.name + '<\/option> ';
                            });
                        });
                        $('#atx-question-category').empty();
@@ -195,30 +196,30 @@ var Application = {
         //question submit
                
         $('#atx-questionform').submit(function (event) {
-          var data = { };
-          data['question'] = $('#atx-question').val().trim(); 
-          data['category'] = $('#atx-question-category').val().trim();  
-          if (data['category'] === '') {
+            var data = { };
+            data['question'] = $('#atx-question').val().trim(); 
+            data['category'] = $('#atx-question-category').val().trim();  
+            if (data['category'] === '') {
                 navigator.notification.alert('Invalid Category, Please select question category', function () {
                 }, 'Error');
                 return false;
-          }              
-          if (data['question'] === '') {
-             navigator.notification.alert('Question is required and cannot be empty', function () {
-             }, 'Error');
-             return false;
-          }
-          event.preventDefault();
-          $.mobile.changePage("#atx-form-page", { transition: "slide", changeHash: true });
-          return false;
+            }              
+            if (data['question'] === '') {
+                navigator.notification.alert('Question is required and cannot be empty', function () {
+                }, 'Error');
+                return false;
+            }
+            event.preventDefault();
+            $.mobile.changePage("#atx-form-page", { transition: "slide", changeHash: true });
+            return false;
         });
     },
 
 
 
     initCategoryPage: function () {
-        
-        if(! Application.checkConnection()) return;
+        if (! Application.checkConnection())
+            return;
         var $List = $('#category-list');
         var $lng = $("#app-language").val();
         var $url = $PSserver + 'services/atx_faqcategory/' + $lng ;
@@ -235,19 +236,18 @@ var Application = {
                    jsonpCallback:'callback',
                    beforeSend: function () {
                        $.mobile.loading('show');
-                       fetchdata=false;
+                       fetchdata = false;
                    },
                    complete: function () {
                        $.mobile.loading('hide');
                        ajaxing = false;
                        console.log('Category:ajax Complete');
-                     //if (fetchdata == false) return;                       
+                       //if (fetchdata == false) return;                       
                    },
 
                    success: function (data, status) { 
-                      
                        if (data.length < 1 || data['rows'].length < 1) {
-                          navigator.notification.alert('Topics category not available.', function () {
+                           navigator.notification.alert('Topics category not available.', function () {
                            }, 'Error');
                            $.mobile.changePage("#home-page", { transition: "fade", changeHash: true });
                            return;
@@ -258,21 +258,19 @@ var Application = {
                                htmlItems +='<li><a class="categotyItem" data-transition="slide"  tid=' + value.tid + ' tname=' + value.name + '  href="#faq-list-page">' + value.name + '</a></li>';
                            });
                        });
-                       loadCategory=true;
+                       loadCategory = true;
                        $List.append(htmlItems);
                        if ($List.hasClass('ui-listview')) {
                            $List.listview('refresh');
-                       }
-                       else {
+                       } else {
                            $List.trigger('create');
                        }
                    },
                    error: function (e, textStatus) {
-                       if(textStatus == 'timeout')
-                         {    
-                         navigator.notification.alert('Unable to connect with server please try again later.', function () {
+                       if (textStatus == 'timeout') {    
+                           navigator.notification.alert('Unable to connect with server please try again later.', function () {
                            }, 'Error');        
-                         }
+                       }
                        console.log(e.message);
                    }
                });
@@ -282,15 +280,16 @@ var Application = {
             var $tid = $(this).attr("tid") ;
             var $tname = $(this).attr("tname") ;
             $('.category-name').text($tname);
-          //  $('.faq-detail-category').text($tname);
-            category=$tname;
+            //  $('.faq-detail-category').text($tname);
+            category = $tname;
             Application.initFaqsListPage($tid);
         });
     },
 
     initFaqDetailPage: function ($nid) {
-        if(! Application.checkConnection()) return;
-       // alert($nid);
+        if (! Application.checkConnection())
+            return;
+        // alert($nid);
         var $body = $('.node-body');
         var $title = $('.node-title');
         var $lng = $("#app-language").val();
@@ -306,13 +305,14 @@ var Application = {
                    jsonpCallback:'callback',
                    beforeSend: function () {
                        $.mobile.loading('show');
-                       fetchdata=false;
+                       fetchdata = false;
                    },
                    complete: function () {
                        $.mobile.loading('hide');
                        ajaxing = false;
-                       if (fetchdata == false) return;
-                   //   $.mobile.changePage("#faq-detail-page" , { transition: "slide", changeHash: true });
+                       if (fetchdata == false)
+                           return;
+                       //   $.mobile.changePage("#faq-detail-page" , { transition: "slide", changeHash: true });
                        $.mobile.changePage("faq-detail-page.html?nid=" + $nid, { transition: "slide", changeHash: true });
                                         
                        console.log('FaqDetail:ajax Complete');
@@ -325,7 +325,7 @@ var Application = {
                         
                            return;
                        }
-                       fetchdata=true;
+                       fetchdata = true;
                        $.each(data['rows'], function(i, row) {
                            $.each(row, function(key, value) {
                                $title.html(value.title);
@@ -333,22 +333,21 @@ var Application = {
                                return false;
                            });
                        });
-                   
                    },
             
                    error: function (e, textStatus) {
-                       if(textStatus == 'timeout')
-                         {    
-                         navigator.notification.alert('Unable to connect with server please try again later.', function () {
+                       if (textStatus == 'timeout') {    
+                           navigator.notification.alert('Unable to connect with server please try again later.', function () {
                            }, 'Error');        
-                         }
+                       }
                        console.log(e.message);
                    }
                });
     },
 
     initFaqsListPage: function ($tid) {
-        if(! Application.checkConnection()) return;
+        if (! Application.checkConnection())
+            return;
         var $List = $('.faqs-list');
         var $lng = $("#app-language").val();
         var $url = $PSserver + 'services/atx_faqlist/' + $tid + '/' + $lng ;
@@ -365,12 +364,13 @@ var Application = {
                    jsonpCallback:'callback',
                    beforeSend: function () {
                        $.mobile.loading('show');
-                       fetchdata=false;
+                       fetchdata = false;
                    },
                    complete: function () {
                        $.mobile.loading('hide');
                        ajaxing = false;
-                       if (fetchdata == false) return;
+                       if (fetchdata == false)
+                           return;
                        $.mobile.changePage("#faq-list-page", { transition: "slide", changeHash: true });
                        console.log('FaqList:ajax Complete');
                    },
@@ -379,7 +379,7 @@ var Application = {
                        console.log(data);
 
                        if (data.length < 1 || data['rows'].length < 1) {
-                         //$.mobile.changePage("#browsetopic-page", { transition: "fade", changeHash: true });
+                           //$.mobile.changePage("#browsetopic-page", { transition: "fade", changeHash: true });
                            navigator.notification.alert('Unable to retrieve the Topic list.', function () {
                            }, 'Error');
                            
@@ -389,24 +389,22 @@ var Application = {
                        $.each(data['rows'], function(i, row) {
                            $.each(row, function(key, value) {
                                htmlItems +='<li><a data-ajax= "false"  nid="' + value.nid + '" class="nodeItem" data-transition="slide" href="#faq-detail-page"><h2>' + value.title + '</h2><p>' + value.Question + '</p></a></li>';
-  							//htmlItems +='<li><a  nid="' + value.nid + '" class="nodeItemExt" data-transition="flip" href="faq-detail-page.html?nid=' + value.nid +  '"><h2>' + value.title + '</h2><p>' + value.Question + '</p></a></li>';                               
+                               //htmlItems +='<li><a  nid="' + value.nid + '" class="nodeItemExt" data-transition="flip" href="faq-detail-page.html?nid=' + value.nid +  '"><h2>' + value.title + '</h2><p>' + value.Question + '</p></a></li>';                               
                            });
                        });
 
                        $List.append(htmlItems);
                        if ($List.hasClass('ui-listview')) {
                            $List.listview('refresh');
-                       }
-                       else {
+                       } else {
                            $List.trigger('create');
                        }
                    },
                    error: function (e, textStatus) {
-                       if(textStatus == 'timeout')
-                         {    
-                         navigator.notification.alert('Unable to connect with server please try again later.', function () {
+                       if (textStatus == 'timeout') {    
+                           navigator.notification.alert('Unable to connect with server please try again later.', function () {
                            }, 'Error');        
-                         }
+                       }
                        console.log(e.message);
                    }
                });
@@ -416,16 +414,15 @@ var Application = {
             var $nid = $(this).attr("nid") ;
             Application.initFaqDetailPage($nid);
         });
-
     },
 
     initHomePage: function () {
         var $List = $('#home-faqlist');
         var $lng = $("#app-language").val();
         var $homelistlimit = 4;
-        if ($(window).height() > 480) 
-        { $homelistlimit = 6; }
-        
+        if ($(window).height() > 480) {
+            $homelistlimit = 6;
+        }
            
         var $url = $PSserver + 'services/atx_faqRnd/' + $lng;
         var htmlItems = '';
@@ -447,7 +444,6 @@ var Application = {
                        console.log('Home:Ajax Complete');
                    },
                    success: function (data, status) {
-                       
                        if (data.length < 1 || data['rows'].length < 1) {
                            navigator.notification.alert('Unable to retrieve the FAQ.', function () {
                            }, 'Error');
@@ -466,8 +462,7 @@ var Application = {
                        $List.append(htmlItems);
                        if ($List.hasClass('ui-listview')) {
                            $List.listview('refresh');
-                       }
-                       else {
+                       } else {
                            $List.trigger('create');
                        }
                    },
@@ -486,12 +481,13 @@ var Application = {
     },
 
     checkConnection: function () {
-       if (isDevice === true){
-        if (navigator.connection.type === Connection.NONE) {
-            navigator.notification.alert('Please check your network connection', function () {}, 'Connection error');
-            $.mobile.changePage("#home-page", { transition: "fade", changeHash: true });
-            return false;
-        }
+        if (isDevice === true) {
+            if (navigator.connection.type === Connection.NONE) {
+                navigator.notification.alert('Please check your network connection', function () {
+                }, 'Connection error');
+                $.mobile.changePage("#home-page", { transition: "fade", changeHash: true });
+                return false;
+            }
         }
         return true;
     },
@@ -521,7 +517,7 @@ var Application = {
         data['country'] = $('#atx-country').val().trim();
       
         data['is_teacher'] = $('input[name=atx-is_teacher]:checked', '#atx-form').val()
-       //  data['is_teacher'] = ($("#atx-is_teacher").is(':checked'))?1:0;
+        //  data['is_teacher'] = ($("#atx-is_teacher").is(':checked'))?1:0;
 
         localStorage.setItem('userProfile', JSON.stringify(data));
 
@@ -553,12 +549,12 @@ var Application = {
                 }, 'Error');
                 return false;
             }
-           if (data['question'] === '') {
-             navigator.notification.alert('Question is required and cannot be empty', function () {
-             }, 'Error');
-             return false;
-           } 
-           if (data['category'] === '') {
+            if (data['question'] === '') {
+                navigator.notification.alert('Question is required and cannot be empty', function () {
+                }, 'Error');
+                return false;
+            } 
+            if (data['category'] === '') {
                 navigator.notification.alert('Invalid Category, Please select question category', function () {
                 }, 'Error');
                 return false;
@@ -568,8 +564,7 @@ var Application = {
             data['deviceUuid'] = device.uuid;
             data['devicePlatform'] = device.platform;
             data['deviceVersion'] = device.version;
-        }
-        else {
+        } else {
             if (data['name'] === '') {
                 alert('Name field is required and cannot be empty');
                 return false;
@@ -601,7 +596,6 @@ var Application = {
     },
 
     _getDbValues: function() {
-  
         if (localStorage.getItem('userProfile') != undefined) {
             var data = localStorage.getItem('userProfile');
             var items = JSON.parse(data)  ;
@@ -616,8 +610,6 @@ var Application = {
             if (items.age != undefined) {
                 $('#atx-age').val(items.age).selectmenu("refresh");
                 /*
-         
-                
                 result = document.getElementById("atx-age");
                 alert( items.age);
                 result.value = items.age;
@@ -633,10 +625,8 @@ var Application = {
                 */
             }
             if (items.is_teacher != undefined) {
-                
                 $("input[name=atx-is_teacher][value=" + items.is_teacher + "]").prop('checked', true).refresh;
-
-             //   $('#atx-is_teacher').prop('checked', items.is_teacher);
+                //   $('#atx-is_teacher').prop('checked', items.is_teacher);
             }
         }
     } ,
@@ -657,14 +647,14 @@ var Application = {
     }
     },
     updateIcons: function () {
-        var $buttons = $('a[data-icon], button[data-icon]');
-        var isMobileWidth = ($(window).width() <= 480);
-        if (isMobileWidth) {
-            $('.hdr-bk-btn a[data-icon], button[data-icon]').attr('data-iconpos', 'notext');
-        }
-        else {
-            $('.hdr-bk-btn a[data-icon], button[data-icon]').attr('data-iconpos');
-        }
+    var $buttons = $('a[data-icon], button[data-icon]');
+    var isMobileWidth = ($(window).width() <= 480);
+    if (isMobileWidth) {
+    $('.hdr-bk-btn a[data-icon], button[data-icon]').attr('data-iconpos', 'notext');
+    }
+    else {
+    $('.hdr-bk-btn a[data-icon], button[data-icon]').attr('data-iconpos');
+    }
     },   */
     validateEmail: function (email) {
         var reg = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;

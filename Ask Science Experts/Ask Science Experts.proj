@@ -4,7 +4,7 @@
     <ProjectGuid>8776efe4-8a67-40c3-a904-3ef6c7ceefec</ProjectGuid>
     <ProjectTypeGuids>{070BCB52-5A75-4F8C-A973-144AF0EAFCC9}</ProjectTypeGuids>
     <AppIdentifier>com.planetseed.ATX51</AppIdentifier>
-    <ProjectName>Ask the Experts</ProjectName>
+    <ProjectName>Ask Science Experts</ProjectName>
     <IsRunnable>true</IsRunnable>
     <FrameworkVersion>3.2.0</FrameworkVersion>
     <AndroidPermissions>android.permission.INTERNET</AndroidPermissions>
@@ -16,8 +16,8 @@
     <iOSDeviceFamily>1;2</iOSDeviceFamily>
     <iOSBackgroundMode>
     </iOSBackgroundMode>
-    <iOSDisplayName>Ask the Experts</iOSDisplayName>
-    <AndroidVersionCode>1</AndroidVersionCode>
+    <iOSDisplayName>Ask Science Experts</iOSDisplayName>
+    <AndroidVersionCode>3</AndroidVersionCode>
   </PropertyGroup>
   <Import Project="$(MSBuildExtensionsPath)\Telerik\ICE\Tools\Mobile\MobileTools.targets" />
 </Project>

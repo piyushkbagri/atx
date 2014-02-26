@@ -1,8 +1,10 @@
-.ui-content {
-padding: 5px 15px;
+.ui-content
+{
+    padding: 5px 15px;
 }
-#home-page .ui-content {
-padding: 3em 15px;
+#home-page .ui-content
+{
+    padding: 3em 15px;
 }
 
 .ui-page, .ui-header1
@@ -13,7 +15,7 @@ padding: 3em 15px;
 #home-page .ui-block-a
 {
     width: 60% !important;
-    padding:8px
+    padding: 8px
 }
 #home-page .ui-block-b
 {
@@ -32,25 +34,21 @@ body.ui-mobile-viewport, div.ui-mobile-viewport
     border: 0px solid #df9900;
 }
 
-
 #home-page #homelogo img
 {
-    height:25%;
-    width:25%; 
+    height: 25%;
+    width: 25%; 
    
-    min-height:207px;
-    min-width:207px;
-  
+    min-height: 207px;
+    min-width: 207px;
 }
-
-
 
 header.ui-header
 {
     background: url("../images/innerlogo200.png") no-repeat scroll .4em .3em rgba(0, 0, 0, 0);
     border: 0 none;
     /*padding: 5px 0 10px 90px;*/
-    padding:5px 0px 10px 60px;
+    padding: 5px 0px 10px 60px;
     margin-bottom: 5px;
     color: #B6C4D2;
     font-size: 1.8em;
@@ -58,8 +56,8 @@ header.ui-header
     text-align: center;
     text-shadow: none;
     /* border-bottom: 1px solid #df9900;*/
-    padding-top:1em;
-    min-height:50px;
+    padding-top: 1em;
+    min-height: 50px;
 }
 #home-page header.ui-header
 {
@@ -105,26 +103,14 @@ header.ui-header
     text-shadow: none;
 }
 
-#home-page  .ui-btn-inner {
+#home-page  .ui-btn-inner
+{
 
-padding: .6em 15px;
+    padding: .6em 15px;
 
-overflow: hidden;
+    overflow: hidden;
+}
 
-}
-/*
-.homelogo , .logo{
-background-color:      #002D61;
-}
-.homelogo img{
-background-color:      #002D61;
-width: 100%;
-}
-.logo img{
-background-color:      #002D61;
-width: 80%;
-}
-*/
 .logo-inner
 {
     background: url("../images/innerlogo2.png")no-repeat scroll 2px 0 #003466;
@@ -150,7 +136,7 @@ width: 80%;
 
 #node-body p, #atx-success-page .content
 {
-   /* text-align: justify;*/
+    /* text-align: justify;*/
 }
 .hdr-bk-btn .ui-btn-right
 {
@@ -180,14 +166,16 @@ label.error
     width: 100%;
     float: none;
 }
-#category-name,#faq-detail-category{
-margin-bottom:0.25em !important;
-margin-top:0.5em !important;    
-color:rgb(57, 107, 158);
+#category-name, #faq-detail-category
+{
+    margin-bottom: 0.25em !important;
+    margin-top: 0.5em !important; 
+    color: rgb(57, 107, 158);
 }
-#faq-list-page-content h2, #node-title{
-margin-bottom:0.5em !important;
-margin-top:0.25em !important;
+#faq-list-page-content h2, #node-title
+{
+    margin-bottom: 0.5em !important;
+    margin-top: 0.25em !important;
 }
 
 @media screen and (orientation: portrait)
@@ -201,14 +189,14 @@ margin-top:0.25em !important;
     label.error { display: inline-block; margin-left: 22%; }
 }
 
-
-@media only screen and (max-width:320px) and (orientation:portrait){
-     #home-page header.ui-header {    font-size: 1.6em;}
-     header.ui-header { padding-top:0.5em;} 
-     #home-page .ui-content
+@media only screen and (max-width: 320px) and (orientation: portrait)
 {
-    padding-top: 0px;
-}
+    #home-page header.ui-header { font-size: 1.6em; }
+    header.ui-header { padding-top: 0.5em; } 
+    #home-page .ui-content
+    {
+        padding-top: 0px;
+    }
 }
 
 div.ui-input-text
@@ -236,7 +224,7 @@ div.ui-input-text
 {
 
     background: -webkit-linear-gradient(#FFEFAA, #FFE155) repeat scroll 0 0 #FADB4E;
-   /*background:-webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #FFEFAA), color-stop(100%, #FFE155));*/
+    /*background:-webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #FFEFAA), color-stop(100%, #FFE155));*/
     background: -o-linear-gradient(#FFEFAA, #FFE155) repeat scroll 0 0 #FADB4E;
     background: -moz-linear-gradient(#FFEFAA, #FFE155) repeat scroll 0 0 #FADB4E;
     background: linear-gradient(#FFEFAA, #FFE155) repeat scroll 0 0 #FADB4E;
@@ -244,19 +232,20 @@ div.ui-input-text
     text-shadow: none;
     border: 1px solid #F4C63F;
 }
-.ui-bar-a,.ui-bar-d{
+.ui-bar-a, .ui-bar-d
+{
     border: 1px solid #2373a5;
-background: #5393c5;
-font-weight: 700;
-color: #fff;
-cursor: pointer;
-text-shadow: 0 1px 0 #3373a5;
-text-decoration: none;
-background-image: -webkit-gradient(linear,left top,left bottom,from(#5393c5),to(#6facd5));
-background-image: -webkit-linear-gradient(#5393c5,#6facd5);
-background-image: -moz-linear-gradient(#5393c5,#6facd5);
-background-image: -ms-linear-gradient(#5393c5,#6facd5);
-background-image: -o-linear-gradient(#5393c5,#6facd5);
-background-image: linear-gradient(#5393c5,#6facd5);
-font-family: Helvetica,Arial,sans-serif;
+    background: #5393c5;
+    font-weight: 700;
+    color: #fff;
+    cursor: pointer;
+    text-shadow: 0 1px 0 #3373a5;
+    text-decoration: none;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#5393c5), to(#6facd5));
+    background-image: -webkit-linear-gradient(#5393c5, #6facd5);
+    background-image: -moz-linear-gradient(#5393c5, #6facd5);
+    background-image: -ms-linear-gradient(#5393c5, #6facd5);
+    background-image: -o-linear-gradient(#5393c5, #6facd5);
+    background-image: linear-gradient(#5393c5, #6facd5);
+    font-family: Helvetica, Arial, sans-serif;
 }
