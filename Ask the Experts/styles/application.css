@@ -1,3 +1,10 @@
+.ui-content {
+padding: 5px 15px;
+}
+#home-page .ui-content {
+padding: 3em 15px;
+}
+
 .ui-page, .ui-header1
 {
     background: url("../images/bg.jpg") repeat-x scroll center top #CED8E2;
@@ -25,14 +32,22 @@ body.ui-mobile-viewport, div.ui-mobile-viewport
     border: 0px solid #df9900;
 }
 
-#home-page .ui-content
+
+#home-page #homelogo img
 {
-    padding-top: 0px;
+    height:25%;
+    width:25%; 
+   
+    min-height:207px;
+    min-width:207px;
+  
 }
+
+
 
 header.ui-header
 {
-    background: url("../images/innerlogo200.png") no-repeat scroll 4px 4px rgba(0, 0, 0, 0);
+    background: url("../images/innerlogo200.png") no-repeat scroll .4em .3em rgba(0, 0, 0, 0);
     border: 0 none;
     /*padding: 5px 0 10px 90px;*/
     padding:5px 0px 10px 60px;
@@ -50,7 +65,7 @@ header.ui-header
 {
 
 
-    font-size: 1.6em;
+    font-size: 2.6em;
     line-height: 120%;
     padding: 2px 0;
     text-align: center;
@@ -188,8 +203,12 @@ margin-top:0.25em !important;
 
 
 @media only screen and (max-width:320px) and (orientation:portrait){
-   
+     #home-page header.ui-header {    font-size: 1.6em;}
      header.ui-header { padding-top:0.5em;} 
+     #home-page .ui-content
+{
+    padding-top: 0px;
+}
 }
 
 div.ui-input-text

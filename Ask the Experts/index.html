@@ -44,33 +44,34 @@
         <!--    <link rel="stylesheet" href="styles/custom.css" /> -->
         <link rel="stylesheet" href="styles/application.css" />
         <!-- Phone 320x480 High DPI (aka Retina) -->
-        <link rel="stylesheet" media="only screen and (min-device-width: 320px) and (max-device-width: 480px) and (-webkit-device-pixel-ratio:2)" href="styles/phone-480.css" type="text/css" />
+        <!--<link rel="stylesheet" media="only screen and (min-device-width: 320px) and (max-device-width: 480px) and (-webkit-device-pixel-ratio:2)" href="styles/phone-480.css" type="text/css" /> -->
         <!-- Phone 480x800 Medium DPI (aka Samsung Galaxy S II Skyrocket) -->
-        <link rel="stylesheet" media="only screen and (min-device-width: 320px) and (max-device-width: 508px) and (-webkit-device-pixel-ratio:1.5)" href="styles/phone-800.css" type="text/css" />
+        <!--<link rel="stylesheet" media="only screen and (min-device-width: 320px) and (max-device-width: 508px) and (-webkit-device-pixel-ratio:1.5)" href="styles/phone-800.css" type="text/css" /> -->
         <!-- Tablet 768x1024 Low DPI (aka iPad 1 & 2") -->
-        <link rel="stylesheet" media="only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (-webkit-device-pixel-ratio:1)" href="styles/tablet-1024-ldpi.css" type="text/css" />
+        <!--<link rel="stylesheet" media="only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (-webkit-device-pixel-ratio:1)" href="styles/tablet-1024-ldpi.css" type="text/css" /> -->
         <!-- Tablet 800x1280 Low DPI (aka Samsung Galaxy Tab 8.9" & Lenovo K1) -->
         <!--<link rel="stylesheet" media="only screen and (min-device-width: 800px) and (max-device-width: 1280px) and (-webkit-device-pixel-ratio:1)" href="styles/tablet-1280.css" type="text/css" />-->
         <!-- Phone 720x1280 High DPI (aka Google Nexus) -->
-        <link rel="stylesheet" media="only screen and (min-device-width: 720px) and (max-device-width: 1280px) and (-webkit-device-pixel-ratio:2)" href="styles/phone-1280.css" type="text/css" />
+        <!--<link rel="stylesheet" media="only screen and (min-device-width: 720px) and (max-device-width: 1280px) and (-webkit-device-pixel-ratio:2)" href="styles/phone-1280.css" type="text/css" /> -->
         <!-- Tablet 500x1024 Low DPI (aka Kindle Fire) -->
         <!--<link rel="stylesheet" media="only screen and (min-device-width: 600px) and (max-device-width: 1024px) and (-webkit-device-pixel-ratio:1)" href="styles/tablet-600-1024.css" type="text/css" />-->
         <!-- Tablet 768x1024 High DPI (aka iPad3") -->
         <!--<link rel="stylesheet" media="only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (-webkit-device-pixel-ratio:2)" href="styles/tablet-1024-hdpi.css" type="text/css" />-->
     </head>
-    <body>
+    <body> 
 
         <!-- Home Begin -->
         <div data-role="page" id="home-page">
 
             <header data-role="header" data-theme="d">
                 <div align="center" class="logo">
-                    <img src="images/new_logo200.png" />
+                    <div id="homelogo"> <img src="images/new_logo200.png" /></div>
+                    <!--  -->
                     <div class="title">Ask Science Experts</div>
                 </div>
             </header>
 
-            <div  class="content" data-role="content" >
+            <div  class="content" data-role="content" style="" >
              
 
                 
@@ -85,17 +86,6 @@
                     <option value="pt-br">Português</option>
                     <option value="ru">Русский</option>
                 </select>
-                <!--
-                <ul id='home-faqlist' class="faqlist" data-role="listview" data-inset="true">
-                </ul>
-                <ul id="ul-language"><li class="ar first"><a class="language-link" href="/ar">العربية</a></li>
-                <li class="zh-hans "><a class="language-link" href="/zh-hans">中文</a></li>
-                <li class="en "><a class="language-link active" href="/">English</a></li>
-                <li class="es "><a class="language-link" href="/es">Español</a></li>
-                <li class="fr "><a class="language-link" href="/fr">Français</a></li>
-                <li class="pt-br "><a class="language-link" href="/pt-br">Português</a></li>
-                <li class="ru last "><a class="language-link" href="/ru">Русский</a></li>
-                </ul> -->
 
                 <p>
                     <div class="ui-body ui-body-d ui-corner-all" data-form="ui-body-d">
@@ -126,17 +116,10 @@
 
             </div>
 
-            <!--
+          
             <footer data-role="footer" data-position="fixed" data-fullscreen='false'>
-            
-            <div  data-role="navbar" class="buttom-button ui-body-b"  >
-            <ul>
-            <li><a  data-transition="slide" href="#asktheexpert-page" data-role="button" id='homeAskBtn' data-icon="grid">Ask </a> </li>
-            <li><a  data-transition="slide" href="#browsetopic-page" data-role="button" id='homeBrowseBtn' data-icon="search">Browse</a> </li>
-            </ul>
-            </div>
-            <div class="copyright"> Schlumberger Excellence in Education Development.</div>
-            </footer> -->
+         
+            </footer> 
         </div>
         <!-- Home End -->
 
