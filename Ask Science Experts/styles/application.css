@@ -137,6 +137,7 @@ header.ui-header
 #node-body p, #atx-success-page .content
 {
     /* text-align: justify;*/
+     word-wrap: break-word;
 }
 .hdr-bk-btn .ui-btn-right
 {
@@ -237,6 +238,7 @@ div.ui-input-text
     text-shadow: none;
     border: 1px solid #F4C63F;
 }
+
 .ui-bar-a, .ui-bar-d
 {
     border: 1px solid #2373a5;
