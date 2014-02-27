@@ -54,6 +54,7 @@ var Application = {
     },
 
     loadApplication: function () {
+    //    alert($(window).width() );
         //    Application.updateIcons();
         Application.loadCountry();
         Application.loadAge();
@@ -503,7 +504,7 @@ var Application = {
 
     loadAge: function() {
         var str = '';
-        for (var counter = 4; counter < 60; counter++) {
+        for (var counter = 4; counter <= 70; counter++) {
             str += '<option value="' + counter + '">' + counter + '</option>';
         }
         $("#atx-age").append(str);
