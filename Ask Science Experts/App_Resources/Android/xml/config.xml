@@ -5,7 +5,7 @@
 
     <access origin="http://127.0.0.1*"/> <!-- allow local pages -->
     <access origin="*"/>
-
+ 
     <content src="index.html" />
 
     <log level="DEBUG"/>
