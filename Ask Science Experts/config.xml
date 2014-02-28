@@ -12,16 +12,30 @@
     <icon cdv:platform="blackberry" height="80" src="res/icon/cordova_bb_80.png" width="80" />
     <icon cdv:platform="ios" height="144" src="res/icon/cordova_ios_144.png" width="144" />
 	
-<gap:plugin name="org.apache.cordova.dialogs" />
-<gap:plugin name="org.apache.cordova.splashscreen" />	
-<gap:plugin name="org.apache.cordova.network-information" />
-<gap:plugin name="org.apache.cordova.device" />
-    
-    <feature name="http://api.phonegap.com/1.0/device" />
+ <gap:plugin name="org.apache.cordova.core.network-information" />
+    <gap:plugin name="org.apache.cordova.core.dialogs" />
+    <gap:plugin name="org.apache.cordova.core.device" />
+
+    <preference name="permissions" value="none" />
     <preference name="phonegap-version" value="3.1.0" />
     <preference name="orientation" value="default" />
     <preference name="target-device" value="universal" />
     <preference name="fullscreen" value="true" />
+    <preference name="webviewbounce" value="true" />
+    <preference name="prerendered-icon" value="true" />
+    <preference name="stay-in-webview" value="false" />
+    <preference name="ios-statusbarstyle" value="black-opaque" />
+    <preference name="detect-data-types" value="true" />
+    <preference name="exit-on-suspend" value="false" />
+    <preference name="show-splash-screen-spinner" value="true" />
+    <preference name="auto-hide-splash-screen" value="true" />
+    <preference name="disable-cursor" value="false" />
+    <preference name="android-minSdkVersion" value="11" />
+    <preference name="android-installLocation" value="auto" />
+
+    
+    <feature name="http://api.phonegap.com/1.0/device" />
+
     <preference name="DisallowOverscroll" value="true" />
 
     <access origin="*" />
