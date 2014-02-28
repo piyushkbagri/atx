@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding='utf-8'?>
+<widget id="com.planetseed.ATX" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <name>Ask Science Experts</name>
+    <description>
+        Ask Science Experts
+    </description>
+    <author email="piyush.bagri@dev2source.com" href="http://planetseed.com">
+        Digital Learning Solutions
+    </author>
+    <icon height="512" src="icon.png" width="512" />
+    <icon cdv:platform="android" height="96" src="App_Resources/Android/drawable-hdpi/icon.png" width="96" />
+    <icon cdv:platform="blackberry" height="80" src="res/icon/cordova_bb_80.png" width="80" />
+    <icon cdv:platform="ios" height="144" src="res/icon/cordova_ios_144.png" width="144" />
+	
+<gap:plugin name="org.apache.cordova.dialogs" />
+<gap:plugin name="org.apache.cordova.splashscreen" />	
+<gap:plugin name="org.apache.cordova.network-information" />
+<gap:plugin name="org.apache.cordova.device" />
+    
+    <feature name="http://api.phonegap.com/1.0/device" />
+    <preference name="phonegap-version" value="3.1.0" />
+    <preference name="orientation" value="default" />
+    <preference name="target-device" value="universal" />
+    <preference name="fullscreen" value="true" />
+    <preference name="DisallowOverscroll" value="true" />
+
+    <access origin="*" />
+</widget>
