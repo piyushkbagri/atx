@@ -29,13 +29,14 @@ var Application = {
                 //   Application.initCategoryPage();
             })
             .on('pagebeforeshow', '#atx-form-page', function () {
-                $('#atx-country').selectmenu("refresh");
-                $('#atx-age').selectmenu("refresh");
+               
                 qSubmit = false;
             })
             .on('pageinit', '#atx-form-page', function () {
                 qSubmit = false;
                 Application._getDbValues();
+                $('#atx-country').selectmenu("refresh");
+                $('#atx-age').selectmenu("refresh");
                 //    Application.initAtxFormPage(); 
             })
             .on('pageinit', '#faq-detail-page-ext', function () {
@@ -54,29 +55,24 @@ var Application = {
     },
 
     loadApplication: function () {
-    //    alert($(window).width() );
-        //    Application.updateIcons();
-        Application.loadCountry();
-        Application.loadAge();
-        
-        //   Application.initCategoryPage();
-        Application.initAtxFormPage();
-        Application.initQuestionPage();
-       
-        if (isDevice === true) {
-            navigator.splashscreen.hide();
-        }
-       
-        $(".btnclose").on("tap", function() {
-            navigator.app.exitApp();
-        });
-        
-        $(document).bind("mobileinit", function () {
+       //alert($(window).height() );
+       //Application.updateIcons();
+       Application.loadCountry();
+       Application.loadAge();
+       //   Application.initCategoryPage();
+       Application.initAtxFormPage();
+       Application.initQuestionPage();
+       if (isDevice === true) {
+          navigator.splashscreen.hide();
+       }
+       $(".btnclose").on("tap", function() {
+           navigator.app.exitApp();
+       });
+       $(document).bind("mobileinit", function () {
             $.mobile.defaultPageTransition = 'none';
             $.mobile.defaultDialogTransition = 'none';
             $.mobile.buttonMarkup.hoverDelay = 0;
         });
-        
         $(document).on("change", '#app-language', function(event) {
             loadCategory = false;
             Application.initCategoryPage();
@@ -88,9 +84,6 @@ var Application = {
             return Application.checkConnection();
         });
     },
-
-
-  
 
     initAtxFormPage: function () {
         $('#atx-form').submit(function (event) {
@@ -153,8 +146,7 @@ var Application = {
 
 
     initQuestionPage: function () {
-        if (! Application.checkConnection())
-            return;
+        if (! Application.checkConnection())    return;
         
         var $lng = $("#app-language").val();
         var $url = $PSserver + 'services/atx_ticketcategory/' + $lng ;
