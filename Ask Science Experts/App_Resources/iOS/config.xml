@@ -1,12 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <widget>
- <name>note book</name> 
-    <description>
-        A sample Apache Cordova application that responds to the deviceready event.
-    </description>
-    <author email="callback-dev@incubator.apache.org" href="http://cordova.io">
-        Apache Cordova Team
-    </author>
+     <name>Ask Science Experts</name> 
+   
     <preference name="AllowInlineMediaPlayback" value="false" />
     <preference name="AutoHideSplashScreen" value="true" />
     <preference name="BackupWebStorage" value="cloud" />
