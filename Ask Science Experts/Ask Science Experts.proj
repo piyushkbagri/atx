@@ -17,7 +17,7 @@
     <iOSBackgroundMode>
     </iOSBackgroundMode>
     <iOSDisplayName>Ask Science Experts</iOSDisplayName>
-    <AndroidVersionCode>3</AndroidVersionCode>
+    <AndroidVersionCode>4</AndroidVersionCode>
   </PropertyGroup>
   <Import Project="$(MSBuildExtensionsPath)\Telerik\ICE\Tools\Mobile\MobileTools.targets" />
 </Project>
