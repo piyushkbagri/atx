@@ -11,9 +11,12 @@ var qSubmit = false;
 var qSubmitSuccess = false;
 
 var Application = {
+    
 
     initApplication: function () {
+           
         $(document)
+        
             .on('pageinit', '#home-page', function () {
                 //   Application.initHomePage();   
             })
@@ -72,7 +75,11 @@ var Application = {
             $.mobile.defaultPageTransition = 'none';
             $.mobile.defaultDialogTransition = 'none';
             $.mobile.buttonMarkup.hoverDelay = 0;
+             $.mobile.defaultHomeScroll = 0;
         });
+        
+        
+        
         $(document).on("change", '#app-language', function(event) {
             loadCategory = false;
             Application.initCategoryPage();
@@ -127,7 +134,7 @@ var Application = {
                            qSubmit = false;
                            console.log('Question submitted:ajax Complete');
                            if (qSubmitSuccess == true) {
-                               $.mobile.changePage("#atx-success-page", { transition: "slide", changeHash: false });
+                               $.mobile.changePage("#atx-success-page", { transition: "fade", changeHash: false });
                            }                           
                        },
 
@@ -203,7 +210,7 @@ var Application = {
                 return false;
             }
             event.preventDefault();
-            $.mobile.changePage("#atx-form-page", { transition: "slide", changeHash: true });
+            $.mobile.changePage("#atx-form-page", { transition: "none", changeHash: true });
             return false;
         });
     },
@@ -248,7 +255,7 @@ var Application = {
                        fetchdata = true;
                        $.each(data['rows'], function(i, row) {
                            $.each(row, function(key, value) {
-                               htmlItems +='<li><a class="categotyItem" data-transition="slide"  tid=' + value.tid + ' tname=' + value.name + '  href="#faq-list-page">' + value.name + '</a></li>';
+                               htmlItems +='<li><a class="categotyItem" data-transition="fade"  tid=' + value.tid + ' tname=' + value.name + '  href="#faq-list-page">' + value.name + '</a></li>';
                            });
                        });
                        loadCategory = true;
@@ -306,7 +313,7 @@ var Application = {
                        if (fetchdata == false)
                            return;
                        //   $.mobile.changePage("#faq-detail-page" , { transition: "slide", changeHash: true });
-                       $.mobile.changePage("faq-detail-page.html?nid=" + $nid, { transition: "slide", changeHash: true });
+                       $.mobile.changePage("faq-detail-page.html?nid=" + $nid, { transition: "fade", changeHash: true });
                                         
                        console.log('FaqDetail:ajax Complete');
                    },
@@ -364,7 +371,7 @@ var Application = {
                        ajaxing = false;
                        if (fetchdata == false)
                            return;
-                       $.mobile.changePage("#faq-list-page", { transition: "slide", changeHash: true });
+                       $.mobile.changePage("#faq-list-page", { transition: "fade", changeHash: true });
                        console.log('FaqList:ajax Complete');
                    },
 
@@ -381,7 +388,7 @@ var Application = {
                        fetchdata = true;
                        $.each(data['rows'], function(i, row) {
                            $.each(row, function(key, value) {
-                               htmlItems +='<li><a data-ajax= "false"  nid="' + value.nid + '" class="nodeItem" data-transition="slide" href="#faq-detail-page"><h2>' + value.title + '</h2><p>' + value.Question + '</p></a></li>';
+                               htmlItems +='<li><a data-ajax= "false"  nid="' + value.nid + '" class="nodeItem" data-transition="fade" href="#faq-detail-page"><h2>' + value.title + '</h2><p>' + value.Question + '</p></a></li>';
                                //htmlItems +='<li><a  nid="' + value.nid + '" class="nodeItemExt" data-transition="flip" href="faq-detail-page.html?nid=' + value.nid +  '"><h2>' + value.title + '</h2><p>' + value.Question + '</p></a></li>';                               
                            });
                        });
@@ -448,7 +455,7 @@ var Application = {
                                if (counter == $homelistlimit)
                                    return false;
                                counter++;
-                               htmlItems +='<li><a nid="' + value.nid + '" class="nodeHomeItem" data-transition="slide" href="#faq-detail-page"><h2>' + value.title + '</h2></a></li>';
+                               htmlItems +='<li><a nid="' + value.nid + '" class="nodeHomeItem" data-transition="fade" href="#faq-detail-page"><h2>' + value.title + '</h2></a></li>';
                            });
                        });
                        $List.empty();

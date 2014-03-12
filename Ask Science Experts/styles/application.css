@@ -1,6 +1,7 @@
 .btn-block
 {
     margin:1em 0;
+    
 }
 
 .ui-content
@@ -50,10 +51,11 @@ body.ui-mobile-viewport, div.ui-mobile-viewport
 
 header.ui-header
 {
-    background: url("../images/innerlogo200.png") no-repeat scroll .4em .3em rgba(0, 0, 0, 0);
+       
+   background: url("../images/innerlogo200.png") no-repeat scroll .4em .7em rgba(0, 0, 0, 0);
     border: 0 none;
     /*padding: 5px 0 10px 90px;*/
-    padding: .5em 0px 0.5em 3em;
+    padding: .5em 0px 0.7em 3em;
     margin-bottom: 5px;
     color: #B6C4D2;
     font-size: 1.8em;
@@ -63,18 +65,19 @@ header.ui-header
     /* border-bottom: 1px solid #df9900;*/
     padding-top: 1em;
     min-height: 50px;
+    
 }
 #home-page header.ui-header
 {
-
-
-    font-size: 2.6em;
+   font-size: 2.6em;
     line-height: 120%;
     padding: 2px 0;
     text-align: center;
     text-shadow: none;
     border: 0 none;
+  padding-top:10px;
 }
+ 
 #ul-language
 {
     padding: 0px;
@@ -94,6 +97,7 @@ header.ui-header
     background: url("../images/bg.jpg") repeat-x scroll center top #CED8E2;
     border: 0px solid #df9900;
     padding: 0;
+
 }
 #home-page .logo
 {
@@ -194,19 +198,31 @@ label.error
    
 }
 
-@media screen and (orientation: landscape)
+@media screen and (orientation: landscape) 
 {
-    label.error { display: inline-block; margin-left: 22%; }
+    label.error { display: inline-block; margin-left: 22%; } 
 }
 
 @media only screen and (max-width: 320px) and (orientation: portrait)
 {
     #home-page header.ui-header { font-size: 1.6em; }
     header.ui-header { padding-top: 0.5em; } 
+    
     #home-page .ui-content { padding: 0em 15px; }
     .btn-block { margin:0 0 0.7em 0;  }
 }
+@media only screen and (max-width: 1024px) 
+    {
+  /*  body.ui-mobile-viewport, div.ui-mobile-viewport
+{
+    background:none;
+background-color:green !important;
+}
 
+.ui-page, .ui-header1{
+ background:none !important;   
+}*/
+}
 
 div.ui-input-text
 {
@@ -258,4 +274,7 @@ div.ui-input-text
     background-image: -o-linear-gradient(#5393c5, #6facd5);
     background-image: linear-gradient(#5393c5, #6facd5);
     font-family: Helvetica, Arial, sans-serif;
+}
+div.ui-input-text input.ui-input-text, div.ui-input-text textarea.ui-input-text, .ui-input-search input.ui-input-text{
+    padding:0.4em 0.4em;
 }
