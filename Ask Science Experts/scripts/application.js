@@ -84,11 +84,11 @@ var Application = {
             loadCategory = false;
             Application.initCategoryPage();
         });
-        $('#homeAskBtn').click(function() {
-            return Application.checkConnection();
+        $('#homeAskBtn').click(function(e) {
+            if (!Application.checkConnection()) e.preventDefault(); 
         });
-        $('#homeBrowseBtn').click(function() {
-            return Application.checkConnection();
+        $('#homeBrowseBtn').click(function(e) {
+            if (!Application.checkConnection()) e.preventDefault(); 
         });
     },
 
