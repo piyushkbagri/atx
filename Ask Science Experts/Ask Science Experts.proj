@@ -10,7 +10,7 @@
     <AndroidPermissions>android.permission.INTERNET</AndroidPermissions>
     <CorePlugins>org.apache.cordova.device;org.apache.cordova.network-information;org.apache.cordova.dialogs;org.apache.cordova.splashscreen</CorePlugins>
     <DeviceOrientations>Portrait;Landscape</DeviceOrientations>
-    <iOSStatusBarStyle>Default</iOSStatusBarStyle>
+    <iOSStatusBarStyle>Hidden</iOSStatusBarStyle>
     <AndroidHardwareAcceleration>false</AndroidHardwareAcceleration>
     <BundleVersion>1.0</BundleVersion>
     <iOSDeviceFamily>1;2</iOSDeviceFamily>
