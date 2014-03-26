@@ -13,11 +13,14 @@
     <iOSStatusBarStyle>Hidden</iOSStatusBarStyle>
     <AndroidHardwareAcceleration>false</AndroidHardwareAcceleration>
     <BundleVersion>1.0</BundleVersion>
-    <iOSDeviceFamily>1;2</iOSDeviceFamily>
+    <iOSDeviceFamily>
+    </iOSDeviceFamily>
     <iOSBackgroundMode>
     </iOSBackgroundMode>
-    <iOSDisplayName>Ask Science Experts</iOSDisplayName>
+    <iOSDisplayName>
+    </iOSDisplayName>
     <AndroidVersionCode>4</AndroidVersionCode>
+    <DisplayName>Ask Science Experts</DisplayName>
   </PropertyGroup>
   <Import Project="$(MSBuildExtensionsPath)\Telerik\ICE\Tools\Mobile\MobileTools.targets" />
 </Project>
